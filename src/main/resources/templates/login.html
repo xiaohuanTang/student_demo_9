@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <style>
+        body{font-family:Arial,"Microsoft YaHei",sans-serif;background:#f5f6fa;margin:0;padding:40px;}
+        .box{width:360px;margin:80px auto;background:white;padding:28px;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.08);}
+        input,button{width:100%;box-sizing:border-box;margin-top:12px;padding:10px;font-size:15px;}
+        button{background:#1677ff;color:white;border:0;border-radius:4px;cursor:pointer;}
+        .tip{font-size:13px;color:#666;line-height:1.8;}
+        .error{color:#c00;font-size:13px;}
+    </style>
+</head>
+<body>
+<div class="box">
+    <h2>用户登录</h2>
+    <form th:action="@{/login}" method="post">
+        <input type="text" name="username" placeholder="用户名" required>
+        <input type="password" name="password" placeholder="密码" required>
+        <button type="submit">登录</button>
+    </form>
+    <p class="error" th:if="${param.error}">用户名或密码错误</p>
+    <p class="tip" th:if="${param.logout}">已退出登录</p>
+    <p class="tip">测试账号：admin/123456，user/123456</p>
+</div>
+</body>
+</html>

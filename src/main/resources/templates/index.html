@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+<h2>Spring Security权限控制系统</h2>
+<p>当前登录用户：<span th:text="${username}"></span></p>
+<ul>
+    <li><a href="/user/home">普通用户页面</a></li>
+    <li><a href="/admin/home">管理员页面</a></li>
+    <li><a href="/api/user/info">普通用户接口</a></li>
+    <li><a href="/api/admin/info">管理员接口</a></li>
+</ul>
+<form th:action="@{/logout}" method="post">
+    <button type="submit">退出登录</button>
+</form>
+</body>
+</html>
